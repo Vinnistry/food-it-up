@@ -3,8 +3,8 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
-  <artifactId>java-getting-started</artifactId>
+  <groupId>com.vincentbartels</groupId>
+  <artifactId>food-it-up</artifactId>
   <version>1.0</version>
 
   <parent>
@@ -13,7 +13,7 @@
     <version>2.1.2.RELEASE</version>
     <relativePath/>
   </parent>
-  <name>java-getting-started</name>
+  <name>food-it-up</name>
 
   <properties>
     <java.version>1.8</java.version>
@@ -28,6 +28,10 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
