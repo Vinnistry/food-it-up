@@ -18,7 +18,7 @@ package com.vincentbartels;
 
 
 import com.vincentbartels.model.Receipt;
-import com.vincentbartels.model.ReceiptRepository;
+import com.vincentbartels.respository.ReceiptRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

@@ -3,20 +3,20 @@ package com.vincentbartels.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "receipts")
 public class Receipt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "instruction")
     private String instruction;
 
     protected Receipt() {
-
     }
 
     public Receipt(String name, String instruction) {
@@ -34,6 +34,11 @@ public class Receipt {
 
     public long getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Receipt[id=%d, name='%s', instruction='%s']", id, name, instruction);
     }
 }
 
