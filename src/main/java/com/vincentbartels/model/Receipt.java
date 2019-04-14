@@ -1,15 +1,12 @@
 package com.vincentbartels.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Receipt {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
@@ -18,6 +15,9 @@ public class Receipt {
     @Column
     private String instruction;
 
+    protected Receipt() {
+
+    }
 
     public Receipt(String name, String instruction) {
         this.name = name;
