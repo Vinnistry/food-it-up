@@ -1,14 +1,25 @@
 package com.vincentbartels.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Receipt {
 
-    private final long id;
-    private final String name;
-    private final String instruction;
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column
+    private String name;
+
+    @Column
+    private String instruction;
 
 
-    public Receipt(long id, String name, String instruction) {
-        this.id = id;
+    public Receipt(String name, String instruction) {
         this.name = name;
         this.instruction = instruction;
     }
@@ -24,5 +35,5 @@ public class Receipt {
     public long getId() {
         return id;
     }
-
 }
+
