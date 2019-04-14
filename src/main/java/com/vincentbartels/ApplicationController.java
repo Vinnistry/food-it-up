@@ -17,10 +17,14 @@
 package com.vincentbartels;
 
 
+import com.vincentbartels.model.Receipt;
+import com.vincentbartels.respository.ReceiptRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -40,21 +44,21 @@ public class ApplicationController {
         return "index";
     }
 
-//    @Bean
-//    public CommandLineRunner demo(ReceiptRepository receiptRepository) {
-//        return (args) -> {
-//            receiptRepository.save(new Receipt("lentil soup", "Cook lentils until mushy"));
-//            receiptRepository.save(new Receipt("curry", "cook a lot of rice with no spices"));
-//            receiptRepository.save(new Receipt("veggi soup", "prepare veggies with meat"));
-//
-//            log.info("Customers found with findAll():");
-//            log.info("-------------------------------");
-//            for (Receipt customer : receiptRepository.findAll()) {
-//                log.info(customer.toString());
-//            }
-//
-//        };
-//    }
+    @Bean
+    public CommandLineRunner demo(ReceiptRepository receiptRepository) {
+        return (args) -> {
+            receiptRepository.save(new Receipt("lentil soup2", "Cook lentils until mushy"));
+            receiptRepository.save(new Receipt("curry2", "cook a lot of rice with no spices"));
+            receiptRepository.save(new Receipt("veggi soup2", "prepare veggies with meat"));
+
+            log.info("Customers found with findAll():");
+            log.info("-------------------------------");
+            for (Receipt customer : receiptRepository.findAll()) {
+                log.info(customer.toString());
+            }
+
+        };
+    }
 
 }
 
