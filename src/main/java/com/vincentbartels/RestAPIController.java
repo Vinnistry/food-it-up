@@ -12,6 +12,17 @@ public class RestAPIController {
     @Autowired
     ReceiptRepository receiptRepository;
 
+
+    @GetMapping("/save")
+    public String SaveSomeReceipts() {
+        receiptRepository.save(new Receipt("lentil soup", "Cook lentils until mushy"));
+        receiptRepository.save(new Receipt("curry", "cook a lot of rice with no spices"));
+        receiptRepository.save(new Receipt("veggi soup", "prepare veggies with meat"));
+        return "Done";
+
+    }
+
+
     @GetMapping("/receipts")
     public Iterable<Receipt> AllReceipts() {
         return receiptRepository.findAll();
