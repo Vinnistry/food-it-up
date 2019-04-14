@@ -1,6 +1,6 @@
 package com.vincentbartels;
 
-import com.vincentbartels.datamodel.Receipt;
+import com.vincentbartels.model.Receipt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 

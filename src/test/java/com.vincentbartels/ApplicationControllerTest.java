@@ -13,7 +13,7 @@ public class ApplicationControllerTest {
     private URL base;
 
     @Autowired
-    private TestRestTemplate template;
+    private TestRestTemplate templates;
 
     @Before
     public void setUp() throws Exception {
@@ -22,7 +22,7 @@ public class ApplicationControllerTest {
 
     @Test
     public void getIndexFile() throws Exception {
-        ResponseEntity<String> response = template.getForEntity(base.toString(),
+        ResponseEntity<String> response = templates.getForEntity(base.toString(),
                 String.class);
         //Failing because body is whole file content and not just the body-tag
         assertThat(response.getBody(), equalTo("Just food it up, real fast and delicious!"));

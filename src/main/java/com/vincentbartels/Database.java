@@ -22,7 +22,7 @@ public class Database {
     @Autowired
     private DataSource dataSource;
 
-    public String db(Map<String, Object> model) {
+    String db(Map<String, Object> model) {
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");

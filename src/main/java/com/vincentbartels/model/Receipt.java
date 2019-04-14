@@ -1,4 +1,4 @@
-package com.vincentbartels.datamodel;
+package com.vincentbartels.model;
 
 public class Receipt {
 
