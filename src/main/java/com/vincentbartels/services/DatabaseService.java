@@ -1,4 +1,4 @@
-package com.vincentbartels;
+package com.vincentbartels.services;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -14,7 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Database {
+public class DatabaseService {
 
     @Value("${spring.datasource.url}")
     private String dbUrl;
@@ -22,20 +22,26 @@ public class Database {
     @Autowired
     private DataSource dataSource;
 
-    String db(Map<String, Object> model) {
+    public String ticks(Map<String, Object> model) {
         try (Connection connection = dataSource.getConnection()) {
+
+
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+            stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
+            stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
             stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
 
-
             ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+
             ArrayList<String> output = new ArrayList<String>();
             while (rs.next()) {
                 output.add("Read from DB: " + rs.getTimestamp("tick"));
             }
+            System.out.println("DB: output: " + output);
+
             model.put("records", output);
-            return "db";
+            return "ticks";
+
         } catch (Exception e) {
             model.put("message", e.getMessage());
             return "error";
@@ -52,5 +58,6 @@ public class Database {
             return new HikariDataSource(config);
         }
     }
+
 
 }

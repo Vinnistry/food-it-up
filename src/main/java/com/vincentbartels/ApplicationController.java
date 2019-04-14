@@ -17,6 +17,7 @@
 package com.vincentbartels;
 
 
+import com.vincentbartels.services.DatabaseService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -37,13 +38,10 @@ public class ApplicationController {
         return "index";
     }
 
-    @RequestMapping("/db")
-    String db(){
-
-       // Receipt receipt = new Receipt(0, "lentil Soup", "just cook lentils in water - finshed");
+    @RequestMapping("/ticks")
+    String ticks(DatabaseService db) {
         Map<String, Object> model = null;
-        Database db = new Database();
-        return db.db(model);
+        return db.ticks(model);
     }
 
 }
