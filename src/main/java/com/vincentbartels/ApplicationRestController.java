@@ -36,4 +36,5 @@ public class ApplicationRestController {
         return new Receipt(id, name, instruction);
     }
 
+
 }
