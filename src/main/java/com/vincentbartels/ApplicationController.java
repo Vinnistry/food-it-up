@@ -17,12 +17,8 @@
 package com.vincentbartels;
 
 
-import com.vincentbartels.model.Receipt;
-import com.vincentbartels.model.ReceiptRepository;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,14 +35,14 @@ public class ApplicationController {
         return "index";
     }
 
-    @Bean
-    ApplicationRunner applicationRunner(ReceiptRepository receiptRepository) {
-        return args -> {
-            receiptRepository.save(new Receipt("lentil soup", "Cook lentils until mushy"));
-            receiptRepository.save(new Receipt("curry", "cook a lot of rice with no spices"));
-            receiptRepository.save(new Receipt("veggi soup", "prepare veggies with meat"));
-        };
-    }
+//    @Bean
+//    ApplicationRunner applicationRunner(ReceiptRepository receiptRepository) {
+//        return args -> {
+//            receiptRepository.save(new Receipt("lentil soup", "Cook lentils until mushy"));
+//            receiptRepository.save(new Receipt("curry", "cook a lot of rice with no spices"));
+//            receiptRepository.save(new Receipt("veggi soup", "prepare veggies with meat"));
+//        };
+//    }
 
 }
 
