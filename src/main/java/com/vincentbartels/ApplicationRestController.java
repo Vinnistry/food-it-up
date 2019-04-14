@@ -1,8 +1,11 @@
 package com.vincentbartels;
 
 import com.vincentbartels.model.Receipt;
+import com.vincentbartels.services.DatabaseService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
 
 @org.springframework.web.bind.annotation.RestController
 public class ApplicationRestController {
@@ -34,6 +37,11 @@ public class ApplicationRestController {
         }
 
         return new Receipt(id, name, instruction);
+    }
+
+    @GetMapping("/ticks")
+    ArrayList<String> ticks(DatabaseService databaseService) {
+        return databaseService.ticks();
     }
 
 

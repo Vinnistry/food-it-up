@@ -17,13 +17,10 @@
 package com.vincentbartels;
 
 
-import com.vincentbartels.services.DatabaseService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Map;
 
 @Controller
 @SpringBootApplication
@@ -36,12 +33,6 @@ public class ApplicationController {
     @RequestMapping("/")
     String index() {
         return "index";
-    }
-
-    @RequestMapping("/ticks")
-    String ticks(DatabaseService db) {
-        Map<String, Object> model = null;
-        return db.ticks(model);
     }
 
 }

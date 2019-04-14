@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class DatabaseService {
 
@@ -22,7 +21,7 @@ public class DatabaseService {
     @Autowired
     private DataSource dataSource;
 
-    public String ticks(Map<String, Object> model) {
+    public ArrayList<String> ticks() {
         try (Connection connection = dataSource.getConnection()) {
 
 
@@ -37,14 +36,14 @@ public class DatabaseService {
             while (rs.next()) {
                 output.add("Read from DB: " + rs.getTimestamp("tick"));
             }
-            System.out.println("DB: output: " + output);
+            return output;
 
-            model.put("records", output);
-            return "ticks";
+
 
         } catch (Exception e) {
-            model.put("message", e.getMessage());
-            return "error";
+            ArrayList<String> output = new ArrayList<String>();
+            output.add(e.getMessage());
+            return output;
         }
     }
 
